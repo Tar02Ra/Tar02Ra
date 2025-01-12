@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Payment Gateway</title>
+
+        <style>
+            /* Global Reset */
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            /* Body Styling */
+            body{
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f9;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+
+            /* Payment Gateway Container */
+            .payment-container{
+                background-color: white;
+                width: 100%;
+                max-width: 800px;
+                padding: 40px;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                text-align: center;
+            }
+
+            /* Header */
+            .payment-container h2{
+                font-size: 28px;
+                color: #333;
+                margin-bottom: 30px;
+            }
+
+            /* Bank Selection */
+            .bank-selection{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .bank-button{
+                background-color: #ffffff;
+                border: 2px solid #ddd;
+                padding: 20px;
+                width: 150px;
+                text-align: center;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .bank-button:hover{
+                transform: translateY(-5px);
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            }
+
+            .bank-button img{
+                width: 100px;
+                height: auto;
+                margin-bottom: 10px;
+            }
+
+            .bank-button p{
+                font-size: 16px;
+                color: #333;
+            }
+
+            /* Bank Button Colors */
+            .maybank{
+                border-color: #f1c40f;
+            }
+
+            .bank-islam{
+                border-color: #ff0073;
+            }
+
+            .bsn{
+                border-color: #00c8ffd2;
+            }
+
+            .cimb{
+                border-color: #e74c3c;
+            }
+
+            .rhb{
+                border-color: #3498db;
+            }
+
+            .public-bank{
+                border-color: #2ecc71;
+            }
+
+            .affin-bank{
+                border-color: #9b596b;
+            }
+
+            /* Footer */
+            .footer{
+                margin-top: 30px;
+                font-size: 14px;
+                color: #777;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="payment-container">
+            <h2>Choose Your Payment Method</h2>
+
+            <!-- Bank Selection -->
+             <div class="bank-selection">
+                <!-- Maybank -->
+                 <div class="bank-button maybank" onclick="selectBank('Maybank')">
+                    <img src="" alt="Maybank">
+                    <p>Maybank</p>
+                 </div>
+
+                 <!-- Bank Islam -->
+                  <div class="bank-button bank-islam" onclick="selectBank('Bank Islam')">
+                    <img src="" alt="Bank Islam">
+                    <p>Bank Islam</p>
+                  </div>
+
+                  <!-- BSN -->
+                   <div class="bank-button bsn" onclick="selectBank('BSN')">
+                    <img src="" alt="BSN">
+                    <p>BSN</p>
+                   </div>
+
+                   <!-- CIMB -->
+                    <div class="bank-button cimb" onclick="selectBank('CIMB')">
+                        <img src="" alt="CIMB">
+                        <p>CIMB</p>
+                    </div>
+
+                    <!-- RHB -->
+                     <div class="bank-button rhb" onclick="selectBank('RHB')">
+                        <img src="" alt="RHB">
+                        <p>RHB</p>
+                     </div>
+
+                     <!-- Public Bank -->
+                      <div class="bank-button public-bank" onclick="selectBank('Public Bank')">
+                        <img src="" alt="Public Bank">
+                        <p>Public Bank</p>
+                      </div>
+
+                      <!-- Affin Bank -->
+                       <div class="bank-button affin-bank" onclick="selectBank('Affin Bank')">
+                        <img src="" alt="Affin Bank">
+                        <p>Affin Bank</p>
+                       </div>
+             </div>
+
+             <div calss="footer">
+                <p>All transactions are secure and encrypted. Please choose your preferred bank.</p>
+             </div>
+
+             <!-- Hidden form for submitting to backend -->
+              <form id="payment-form" action="/process-payment" method="POST" style="display: none;">
+                <input type="hidden" name="bank" id="bank-selection">
+              </form>
+        </div>
+        <script>
+            // Function to handle bank selection and submit to backend
+            function selectbank(bankName){
+                // Set the selected bank in the hidden form
+                document.getElementById('bank-selection').value = bankName;
+
+                // Submit the form to the backend
+                document.getElementById('payment-form').submit();
+            }
+        </script>
+
+    </body>
+</html>

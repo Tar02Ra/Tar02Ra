@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial scale=1.0">
+        <title>User Profile</title>
+
+        <style>
+            /* Reset styles */
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            /* Body styling */
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f4f4f9;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                min-height: 100vh;
+                padding: 20px;
+            }
+            /* Profile container */
+            .profile container{
+                background-color: white;
+                width: 80%;
+                max-width: 1000px;
+                padding: 30px;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            }
+
+            /* Profile Header */
+            .profile-header{
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            .profile-header img{
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                border: 4px solid #4caf50;
+                margin-bottom: 15px;
+            }
+
+            .profile-header h2{
+                font-size: 28px;
+                color: #333;
+            }
+
+            .profile-header p{
+                color: #777;
+                font-size: 16px;
+            }
+
+            /* Navigation tabs */
+            .tabs{
+                display: flex;
+                justify-content: space-around;
+                margin-bottom: 20px;
+                border-bottom: 2px solid #ddd;
+            }
+
+            .tab{
+                padding: 10px 20px;
+                font-size: 18px;
+                cursor: pointer;
+                border: none;
+                background-color: transparent;
+                transition: background-color 0.3s;
+            }
+
+            .tab:hover{
+                background-color: #f1f1f1;
+            }
+
+            .active-tab{
+                font-weight: bold;
+                border-bottom: 2px solid #4caf50;
+            }
+
+            /* Content Sections */
+            .section{
+                display: none;
+                margin-top: 20px;
+            }
+
+            .active-section{
+                display:block;
+            }
+
+            /* Profile Content */
+            .profile-info, .order-history, .delivery-address{
+                font-size: 16px;
+                color: #555;
+            }
+
+            .profile-info p, .order-history, .delivery-address p{
+                margin: 10px 0;
+            }
+
+            /* Button Styling */
+            .edit-btn, .order-btn{
+                background-color: #4caf50;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                cursor: pointer;
+                border-radius: 5px;
+                margin-top: 20px;
+                transition: background-color 0.3s;
+            }
+
+            .edit-btn:hover, .order-btn:hover{
+                background-color: #45a049;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="profile-container">
+            <!-- Profile Header -->
+             <div class="profile-header">
+                <img src="logo.jpg" alt="Profile Picture">
+                <h2>John Doe</h2>
+                <p>Email: rsuhayra5@gmail.com</p>
+             </div>
+
+             <!-- Navigation Tabs -->
+              <div class="tabs">
+                <button class="tab active-tab" onclick="showSection('bio')">Biodata</button>
+                <button class="tab" onclick="showSection('orders')">Order History</button>
+                <button class="tab" onclick="showSection('address')">Delivery Address</button>
+              </div>
+
+              <!-- Biodata Section -->
+               <div id="bio" class="section active-section profile-info">
+                <h3>Biodata</h3>
+                <p><strong>Name:</strong> John Doe</p>
+                <p><strong>Phone:</strong> +60136081848</p>
+                <p><strong>Email: rsuhayra5@gmail.com</strong></p>
+                <button class="edit-btn">Edit Profile</button>
+               </div>
+
+               <!-- Order History Section -->
+                <div id="orders" class="section order-history">
+                    <h3>Order History</h3>
+                    <p><strong>Order #1:</strong>Product 1 - 20.00 - Delivered on 12th Jan 2023</p>
+                    <p><strong>Order #2:</strong>Product 2 - 15.00 - Delivered on 15th Feb 2023</p>
+                    <p><strong>Order #3:</strong>Product 3 - 30.00 - Delivered on 20th Feb 2023</p>
+                    <button class="order-btn">View More Orders</button>
+                    </div>
+
+                    <!-- Delivery Address Section -->
+                     <div id="address" class="section delivery-address">
+                        <h3>Delivery Address</h3>
+                        <p><strong>Street:</strong> 123 Main Street</p>
+                        <p><strong>City:</strong> New York</p>
+                        <p><strong>Postal Code:</strong> 10001</p>
+                        <p><strong>Country:</strong> USA</p>
+                        <button class="edit-btn">Edit Address</button>
+                </div>
+
+        </div>
+
+        <script>
+            function showSection(section)
+            // Hide all sections
+            const secttions = document.querySelectorAll('.section');
+            sections.forEach(function(section)
+        
+        section.classList.remove('active-section');
+            );  
+
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(function(tab)
+              tab.classList.remove('active-tab');
+             );
+
+             // Show the selected section
+             document.getElementById(section).classList.add('active-section');
+
+             // Activate the clicked tab
+             const activeTab = document.querySelector(button[onclick="showSection('{section}')"]);
+             activeTab.classList.add('active-tab');
+        </script>
+
+    </body>
+</html>
